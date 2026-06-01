@@ -1,8 +1,8 @@
 import pandas as pd
 
 def cargar_datos():
-    ruta_archivo = 'data/DATASET_Denuncias_Policiales_Ene 2018 a Abr 2026.csv'
-    df = pd.read_csv(ruta_archivo, encoding='utf-8')
+    ruta_archivo = 'data/DATASET_Denuncias_Policiales_Ene 2018 a Abr 2026.zip'
+    df = pd.read_csv(ruta_archivo, encoding='utf-8', compression='zip')
     return df
 
 def limpiar_datos(df):
