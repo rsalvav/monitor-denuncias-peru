@@ -58,8 +58,8 @@ Se realizaron las siguientes actividades de preparación y limpieza de datos:
 - Total de denuncias.
 - Número de modalidades registradas.
 - Número de departamentos analizados.
-- Numero de distrito por departamento con mayor denuncias
-- Numero de tipos de denuncias por departamento y año
+- Número de distrito por departamento con mayor denuncias
+- Número de tipos de denuncias por departamento y año
 
 ### Visualizaciones Dinámicas
 
@@ -67,9 +67,9 @@ Se realizaron las siguientes actividades de preparación y limpieza de datos:
 
 Gráfico de barras que permite identificar las modalidades con mayor cantidad de denuncias registradas y la menor cantidad de denuncias registradas.
 
-#### 2.
+#### 2. Denuncias policias por distrito (Lima Metropolitana)
 
-Análisis de los 3 departamentos con mayor y menor registro de denuncias.
+Gráfico de barras acumuladas que permitie identificar que distrito es el que mayor numero de denuncias tiene y el tipo de denuncia con mayor participación.
 
 #### 3. Participación de Delitos
 
