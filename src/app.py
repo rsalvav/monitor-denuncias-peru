@@ -322,6 +322,42 @@ st.plotly_chart(
 )
 
 # ==================================
+# GRÁFICO 6 - MAPA DE CALOR
+# ==================================
+
+st.subheader("Mapa de Calor: Delitos por Departamento y Año")
+
+heatmap_data = (
+    df_filtrado
+    .groupby(["DPTO_HECHO_NEW", "ANIO"])["cantidad"]
+    .sum()
+    .reset_index()
+)
+
+heatmap_pivot = heatmap_data.pivot(
+    index="DPTO_HECHO_NEW",
+    columns="ANIO",
+    values="cantidad"
+).fillna(0)
+
+fig6 = px.imshow(
+    heatmap_pivot,
+    labels=dict(x="Año", y="Departamento", color="Denuncias"),
+    title="Concentración de denuncias por departamento y año",
+    color_continuous_scale="Reds",
+    aspect="auto"
+)
+
+fig6.update_layout(
+    height=600
+)
+
+st.plotly_chart(
+    fig6,
+    use_container_width=True
+)
+
+# ==================================
 # BUSCADOR
 # ==================================
 
