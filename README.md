@@ -1,4 +1,4 @@
-# 🚨 Monitor de Denuncias Policiales en Perú
+#  Monitor de Denuncias Policiales en Perú
 
 ## Descripción del Proyecto
 Aplicación web interactiva desarrollada en Python con Streamlit y Plotly para la exploración y análisis de la base de datos de denuncias policiales a nivel nacional. Esta herramienta permite identificar tendencias, modalidades delictivas frecuentes y realizar comparaciones entre departamentos mediante visualizaciones dinámicas.
