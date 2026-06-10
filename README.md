@@ -126,10 +126,6 @@ monitor-denuncias-peru/
 bash
 git clone https://github.com/rsalvav/monitor-denuncias-peru.git
 ```
-```
-bash
-git clone https://github.com/rsalvav/monitor-denuncias-peru.git
-```
 
 ### 2. Ingresar al proyecto
 ```
