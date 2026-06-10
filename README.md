@@ -164,7 +164,7 @@ egistradas-en-el-sidpol-2025
 - Jaitman, L., & Anamaría, G. (2020). ¿Por qué se denuncian delitos patrimoniales ante la
 policía en el Perú? Revista Criminalidad, 62(3), 25-41.
 http://www.scielo.org.co/pdf/crim/v62n3/1794-3108-crim-62-03-25.pdf
-
+- Ministerio del Interior. (2026). Reporte del primer trimestre de 2026 de la Incidencia Delictiva en la Macro Región Norte. Informes y publicaciones - Ministerio del Interior.
 
 
 ---
