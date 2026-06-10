@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🚨 Monitor de Denuncias Policiales en Perú")
+st.title(" Monitor de Denuncias Policiales en Perú")
 st.markdown("---")
 
 # Carga y limpieza de datos
@@ -19,7 +19,7 @@ df_limpio = limpiar_datos(df_crudo)
 
 # Panel Lateral - Filtros
 
-st.sidebar.header("🎯 Filtros")
+st.sidebar.header(" Filtros")
 
 lista_departamentos = sorted(
     df_limpio["DPTO_HECHO_NEW"].unique().tolist()
@@ -78,7 +78,7 @@ if anio_seleccionado != "TODOS":
 
 # Indicadores Generales
 
-st.subheader("📌 Indicadores Generales")
+st.subheader(" Indicadores Generales")
 
 col1, col2, col3 = st.columns(3)
 
@@ -104,7 +104,7 @@ st.markdown("---")
 
 # GRÁFICO 1 - TOP DELITOS
 
-st.subheader("📊 Top 5 Modalidades de Delito")
+st.subheader(" Top 5 Modalidades de Delito")
 
 top_filtrado = top_5_delitos(df_filtrado)
 
@@ -122,7 +122,7 @@ st.plotly_chart(
 
 # Gráfico 2 - Departamentos con mayor y menor número de denuncias
 
-st.subheader("📍 Departamentos con Mayor y Menor Número de Denuncias")
+st.subheader(" Departamentos con Mayor y Menor Número de Denuncias")
 
 resumen_departamentos = (
     df_filtrado
@@ -216,7 +216,7 @@ st.plotly_chart(
 
 # Gráfico 4 - Evolución Temporal Anual
 
-st.subheader("📈 Evolución de Denuncias por Año")
+st.subheader(" Evolución de Denuncias por Año")
 
 evolucion = (
     df_limpio
@@ -275,7 +275,7 @@ st.plotly_chart(
 
 # Sección de Búsqueda y Descarga de Datos
 
-st.subheader("🔎 Buscar modalidad")
+st.subheader(" Buscar modalidad")
 
 busqueda = st.text_input(
     "Ingrese una modalidad de delito"
@@ -300,7 +300,7 @@ st.dataframe(
     use_container_width=True
 )
 
-st.subheader("⬇️ Descargar información")
+st.subheader(" Descargar información")
 
 csv = tabla.to_csv(
     index=False
