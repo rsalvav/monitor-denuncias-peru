@@ -58,14 +58,16 @@ Se realizaron las siguientes actividades de preparación y limpieza de datos:
 - Total de denuncias.
 - Número de modalidades registradas.
 - Número de departamentos analizados.
+- Numero de distrito por departamento con mayor denuncias
+- Numero de tipos de denuncias por departamento y año
 
 ### Visualizaciones Dinámicas
 
-#### 1. Top 5 Modalidades de Delito
+#### 1.Departamentos con Mayor y Menor Número de Denuncias
 
-Gráfico de barras que permite identificar las modalidades con mayor cantidad de denuncias registradas.
+Gráfico de barras que permite identificar las modalidades con mayor cantidad de denuncias registradas y la menor cantidad de denuncias registradas.
 
-#### 2. Departamentos con Mayor y Menor Número de Denuncias
+#### 2.
 
 Análisis de los 3 departamentos con mayor y menor registro de denuncias.
 
