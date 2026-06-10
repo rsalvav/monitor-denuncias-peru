@@ -50,6 +50,8 @@ Se realizaron las siguientes actividades de preparación y limpieza de datos:
 - Filtro por departamento.
 - Filtro por modalidad del delito.
 - Filtro por año.
+- Filtro por mapa de calor
+- Filtro por distrito al mayor numero de denuncias por departamento
 
 ### Indicadores KPI
 
