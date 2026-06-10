@@ -75,11 +75,7 @@ Gráfico circular que representa la participación de las principales modalidade
 
 Gráfico de líneas que marca tendencias y variaciones a lo largo del tiempo.
 
-#### 5. Comparación de Departamentos
-
-Herramienta para comparar visualmente el volumen de denuncias entre dos departamentos seleccionados por el usuario.
-
-#### 6. Mapa de Calor Multidimensional
+#### 5. Mapa de Calor Multidimensional
 Visualiza la concentración de delitos por departamento y año, utilizando la saturación de color para detectar rápidamente anomalías, patrones o picos inusuales de denuncias.
 
 
