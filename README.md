@@ -168,5 +168,6 @@ La aplicación permite obtener información descriptiva básica como:
 - Pereyra Jara, Mateo Gabriel
 - Salva Vasquez, Rosalinda
 - Torres Llerena, Marcelo Antonio
+- Medina de la Cruz, Alejandra Valeria
 
 ---
