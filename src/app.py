@@ -358,6 +358,68 @@ st.plotly_chart(
 )
 
 # ==================================
+# GRÁFICO 7 - DENUNCIAS POR DISTRITO (LIMA METROPOLITANA)
+# ==================================
+
+st.subheader("🏙️ Denuncias Policiales por Distrito - Lima Metropolitana")
+
+# Filtramos sobre df_filtrado para que reaccione a los delitos y año seleccionados
+df_lima = df_filtrado[df_filtrado["DPTO_HECHO_NEW"] == "LIMA"]
+
+if df_lima.empty:
+    st.info("Para visualizar el gráfico de Lima, asegúrate de seleccionar 'TODO EL PERÚ' o 'LIMA' en la barra lateral.")
+else:
+    col_distrito = "DISTRITO_HECHO" if "DISTRITO_HECHO" in df_lima.columns else "DIST_HECHO_NEW"
+
+    if col_distrito in df_lima.columns:
+        # Obtener los 10 distritos con más denuncias según los filtros activos
+        top_distritos_nombres = (
+            df_lima
+            .groupby(col_distrito)["cantidad"]
+            .sum()
+            .nlargest(10)
+            .index
+        )
+        
+        df_distritos_top = df_lima[df_lima[col_distrito].isin(top_distritos_nombres)]
+        
+        resumen_distritos = (
+            df_distritos_top
+            .groupby([col_distrito, "P_MODALIDADES"])["cantidad"]
+            .sum()
+            .reset_index()
+        )
+        
+        fig7 = px.bar(
+            resumen_distritos,
+            y=col_distrito,
+            x="cantidad",
+            color="P_MODALIDADES",
+            orientation="h",
+            title=f"Denuncias policiales por distrito - Lima Metropolitana (Top 10)",
+            labels={
+                col_distrito: "Distrito",
+                "cantidad": "Total de Denuncias",
+                "P_MODALIDADES": "Tipo de denuncia"
+            }
+        )
+        
+        fig7.update_layout(
+            barmode="stack",
+            height=550,
+            legend_title_text="Tipo de denuncia",
+            yaxis={"categoryorder": "total ascending"},
+            margin=dict(l=150, r=20, t=50, b=50) # Espacio para que no se corten los nombres de los distritos
+        )
+        
+        st.plotly_chart(
+            fig7,
+            use_container_width=True
+        )
+    else:
+        st.warning("No se encontró una columna de Distritos (ej. 'DISTRITO_HECHO' o 'DIST_HECHO_NEW') en el conjunto de datos.")
+
+# ==================================
 # BUSCADOR
 # ==================================
 
