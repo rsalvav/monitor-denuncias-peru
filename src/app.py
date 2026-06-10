@@ -238,55 +238,7 @@ st.plotly_chart(
     use_container_width=True
 )
 
-# Gráfico 5 - Comparación entre Regiones
-
-st.subheader("Comparación de Departamentos")
-
-departamentos = sorted(
-    df_limpio["DPTO_HECHO_NEW"].unique()
-)
-
-colA, colB = st.columns(2)
-
-with colA:
-    dep1 = st.selectbox(
-        "Departamento 1",
-        departamentos,
-        key="dep1"
-    )
-
-with colB:
-    dep2 = st.selectbox(
-        "Departamento 2",
-        departamentos,
-        index=1,
-        key="dep2"
-    )
-
-comparacion = (
-    df_limpio[
-        df_limpio["DPTO_HECHO_NEW"]
-        .isin([dep1, dep2])
-    ]
-    .groupby("DPTO_HECHO_NEW")["cantidad"]
-    .sum()
-    .reset_index()
-)
-
-fig5 = px.bar(
-    comparacion,
-    x="DPTO_HECHO_NEW",
-    y="cantidad",
-    color="DPTO_HECHO_NEW",
-    title=f"Comparación: {dep1} vs {dep2}"
-)
-
-st.plotly_chart(
-    fig5,
-    use_container_width=True
-)
-
-# Gráfico 6 - Mapa de Calor Multidimensional
+# Gráfico 5 - Mapa de Calor Multidimensional
 
 st.subheader("Mapa de Calor: Delitos por Departamento y Año")
 
@@ -303,7 +255,7 @@ heatmap_pivot = heatmap_data.pivot(
     values="cantidad"
 ).fillna(0)
 
-fig6 = px.imshow(
+fig5 = px.imshow(
     heatmap_pivot,
     labels=dict(x="Año", y="Departamento", color="Denuncias"),
     title="Concentración de denuncias por departamento y año",
@@ -311,72 +263,15 @@ fig6 = px.imshow(
     aspect="auto"
 )
 
-fig6.update_layout(
+fig5.update_layout(
     height=600
 )
 
 st.plotly_chart(
-    fig6,
+    fig5,
     use_container_width=True
 )
 
-# Gráfico 7 - Distribución por Distritos (Lima Metropolitana)
-
-st.subheader("🏙️ Denuncias Policiales por Distrito - Lima Metropolitana")
-
-df_lima = df_filtrado[df_filtrado["DPTO_HECHO_NEW"] == "LIMA"]
-
-if df_lima.empty:
-    st.info("Para visualizar el gráfico de Lima, asegúrate de seleccionar 'TODO EL PERÚ' o 'LIMA' en la barra lateral.")
-else:
-    col_distrito = "DISTRITO_HECHO" if "DISTRITO_HECHO" in df_lima.columns else "DIST_HECHO_NEW"
-
-    if col_distrito in df_lima.columns:
-        top_distritos_nombres = (
-            df_lima
-            .groupby(col_distrito)["cantidad"]
-            .sum()
-            .nlargest(10)
-            .index
-        )
-        
-        df_distritos_top = df_lima[df_lima[col_distrito].isin(top_distritos_nombres)]
-        
-        resumen_distritos = (
-            df_distritos_top
-            .groupby([col_distrito, "P_MODALIDADES"])["cantidad"]
-            .sum()
-            .reset_index()
-        )
-        
-        fig7 = px.bar(
-            resumen_distritos,
-            y=col_distrito,
-            x="cantidad",
-            color="P_MODALIDADES",
-            orientation="h",
-            title=f"Denuncias policiales por distrito - Lima Metropolitana (Top 10)",
-            labels={
-                col_distrito: "Distrito",
-                "cantidad": "Total de Denuncias",
-                "P_MODALIDADES": "Tipo de denuncia"
-            }
-        )
-        
-        fig7.update_layout(
-            barmode="stack",
-            height=550,
-            legend_title_text="Tipo de denuncia",
-            yaxis={"categoryorder": "total ascending"},
-            margin=dict(l=150, r=20, t=50, b=50) 
-        )
-        
-        st.plotly_chart(
-            fig7,
-            use_container_width=True
-        )
-    else:
-        st.warning("No se encontró una columna de Distritos (ej. 'DISTRITO_HECHO' o 'DIST_HECHO_NEW') en el conjunto de datos.")
 
 # Sección de Búsqueda y Descarga de Datos
 
