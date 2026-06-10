@@ -79,6 +79,10 @@ Gráfico de líneas que marca tendencias y variaciones a lo largo del tiempo.
 
 Herramienta para comparar visualmente el volumen de denuncias entre dos departamentos seleccionados por el usuario.
 
+#### 6. Mapa de Calor Multidimensional
+Visualiza la concentración de delitos por departamento y año, utilizando la saturación de color para detectar rápidamente anomalías, patrones o picos inusuales de denuncias.
+
+
 ### Herramientas Adicionales
 
 - Buscador de texto integrado para modalidades específicas.
@@ -105,7 +109,7 @@ monitor-denuncias-peru/
 ├── requirements.txt
 │
 ├── data/
-│   └── denuncias.csv
+│   └── DATASET_Denuncias_Policiales_Ene 2018 a Abr 2026.zip
 │
 ├── src/
 │   ├── app.py
@@ -118,6 +122,10 @@ monitor-denuncias-peru/
 ## Instalación y Ejecución
 
 ### 1. Descargar el repositorio
+```
+bash
+git clone https://github.com/rsalvav/monitor-denuncias-peru.git
+```
 ```
 bash
 git clone https://github.com/rsalvav/monitor-denuncias-peru.git
@@ -147,18 +155,21 @@ text
 http://localhost:8501
 ```
 
+
 ---
 
-## Métricas Descriptivas
 
-La aplicación permite obtener información descriptiva básica como:
+## Referencias
+- Ministerio del Interior. (2026). Denuncias policiales - 1 (Conjunto de datos). Portal de Datos
+Abiertos del Estado Peruano. datosabiertos.gob.pe (p. 2)
+- Observatorio Nacional de Seguridad Ciudadana. (2025). Reporte de denuncias registradas en
+el SIDPOL 2025. Ministerio del Interior https://www.gob.pe/institucion/mininter/informes-publicaciones/6539903-reporte-denuncias-r
+egistradas-en-el-sidpol-2025
+- Jaitman, L., & Anamaría, G. (2020). ¿Por qué se denuncian delitos patrimoniales ante la
+policía en el Perú? Revista Criminalidad, 62(3), 25-41.
+http://www.scielo.org.co/pdf/crim/v62n3/1794-3108-crim-62-03-25.pdf
 
-- Total de denuncias registradas.
-- Cantidad de modalidades de delito.
-- Cantidad de departamentos analizados.
-- Ranking de modalidades con mayor incidencia.
-- Ranking de departamentos con mayor y menor incidencia.
-- Evolución temporal de las denuncias.
+
 
 ---
 
