@@ -2,9 +2,7 @@ import streamlit as st
 import plotly.express as px
 from processing import cargar_datos, limpiar_datos, top_5_delitos
 
-# ==================================
-# CONFIGURACIÓN
-# ==================================
+# Configuración de la página
 
 st.set_page_config(
     page_title="Monitor de Denuncias Policiales",
@@ -14,20 +12,14 @@ st.set_page_config(
 st.title("🚨 Monitor de Denuncias Policiales en Perú")
 st.markdown("---")
 
-# ==================================
-# CARGA Y LIMPIEZA DE DATOS
-# ==================================
+# Carga y limpieza de datos
 
 df_crudo = cargar_datos()
 df_limpio = limpiar_datos(df_crudo)
 
-# ==================================
-# FILTROS
-# ==================================
+# Panel Lateral - Filtros
 
 st.sidebar.header("🎯 Filtros")
-
-# Departamento
 
 lista_departamentos = sorted(
     df_limpio["DPTO_HECHO_NEW"].unique().tolist()
@@ -40,8 +32,6 @@ departamento_seleccionado = st.sidebar.selectbox(
     lista_departamentos
 )
 
-# Modalidad
-
 lista_delitos = sorted(
     df_limpio["P_MODALIDADES"].unique().tolist()
 )
@@ -52,8 +42,6 @@ delito_seleccionado = st.sidebar.selectbox(
     "Modalidad del delito",
     lista_delitos
 )
-
-# Año
 
 lista_anios = sorted(
     df_limpio["ANIO"].unique().tolist()
@@ -66,9 +54,7 @@ anio_seleccionado = st.sidebar.selectbox(
     lista_anios
 )
 
-# ==================================
-# APLICAR FILTROS
-# ==================================
+# Aplicación de filtros lógicos
 
 df_filtrado = df_limpio.copy()
 
@@ -90,9 +76,7 @@ if anio_seleccionado != "TODOS":
         == anio_seleccionado
     ]
 
-# ==================================
-# KPI
-# ==================================
+# Indicadores Generales
 
 st.subheader("📌 Indicadores Generales")
 
@@ -118,9 +102,7 @@ with col3:
 
 st.markdown("---")
 
-# ==================================
 # GRÁFICO 1 - TOP DELITOS
-# ==================================
 
 st.subheader("📊 Top 5 Modalidades de Delito")
 
@@ -138,13 +120,7 @@ st.plotly_chart(
     use_container_width=True
 )
 
-# ==================================
-# GRÁFICO 2 - TOP DEPARTAMENTOS
-# ==================================
-
-# ==================================
-# GRÁFICO 2 - DEPARTAMENTOS CON MÁS Y MENOS DENUNCIAS
-# ==================================
+# Gráfico 2 - Departamentos con mayor y menor número de denuncias
 
 st.subheader("📍 Departamentos con Mayor y Menor Número de Denuncias")
 
@@ -155,7 +131,6 @@ resumen_departamentos = (
     .reset_index()
 )
 
-# Top 3 departamentos con más denuncias
 top_3 = (
     resumen_departamentos
     .sort_values(
@@ -165,7 +140,6 @@ top_3 = (
     .head(3)
 )
 
-# Top 3 departamentos con menos denuncias
 bottom_3 = (
     resumen_departamentos
     .sort_values(
@@ -216,12 +190,7 @@ with col2:
     )
 
 
-##########################################3
-
-
-# ==================================
-# GRÁFICO 3 - PARTICIPACIÓN
-# ==================================
+#Gráfico 3 - Participación de Delitos
 
 st.subheader("Participación de Delitos")
 
@@ -245,9 +214,7 @@ st.plotly_chart(
     use_container_width=True
 )
 
-# ==================================
-# GRÁFICO 4 - EVOLUCIÓN ANUAL
-# ==================================
+# Gráfico 4 - Evolución Temporal Anual
 
 st.subheader("📈 Evolución de Denuncias por Año")
 
@@ -271,9 +238,7 @@ st.plotly_chart(
     use_container_width=True
 )
 
-# ==================================
-# GRÁFICO 5 - COMPARACIÓN
-# ==================================
+# Gráfico 5 - Comparación entre Regiones
 
 st.subheader("Comparación de Departamentos")
 
@@ -321,9 +286,7 @@ st.plotly_chart(
     use_container_width=True
 )
 
-# ==================================
-# GRÁFICO 6 - MAPA DE CALOR
-# ==================================
+# Gráfico 6 - Mapa de Calor Multidimensional
 
 st.subheader("Mapa de Calor: Delitos por Departamento y Año")
 
@@ -357,13 +320,10 @@ st.plotly_chart(
     use_container_width=True
 )
 
-# ==================================
-# GRÁFICO 7 - DENUNCIAS POR DISTRITO (LIMA METROPOLITANA)
-# ==================================
+# Gráfico 7 - Distribución por Distritos (Lima Metropolitana)
 
 st.subheader("🏙️ Denuncias Policiales por Distrito - Lima Metropolitana")
 
-# Filtramos sobre df_filtrado para que reaccione a los delitos y año seleccionados
 df_lima = df_filtrado[df_filtrado["DPTO_HECHO_NEW"] == "LIMA"]
 
 if df_lima.empty:
@@ -372,7 +332,6 @@ else:
     col_distrito = "DISTRITO_HECHO" if "DISTRITO_HECHO" in df_lima.columns else "DIST_HECHO_NEW"
 
     if col_distrito in df_lima.columns:
-        # Obtener los 10 distritos con más denuncias según los filtros activos
         top_distritos_nombres = (
             df_lima
             .groupby(col_distrito)["cantidad"]
@@ -409,7 +368,7 @@ else:
             height=550,
             legend_title_text="Tipo de denuncia",
             yaxis={"categoryorder": "total ascending"},
-            margin=dict(l=150, r=20, t=50, b=50) # Espacio para que no se corten los nombres de los distritos
+            margin=dict(l=150, r=20, t=50, b=50) 
         )
         
         st.plotly_chart(
@@ -419,9 +378,7 @@ else:
     else:
         st.warning("No se encontró una columna de Distritos (ej. 'DISTRITO_HECHO' o 'DIST_HECHO_NEW') en el conjunto de datos.")
 
-# ==================================
-# BUSCADOR
-# ==================================
+# Sección de Búsqueda y Descarga de Datos
 
 st.subheader("🔎 Buscar modalidad")
 
@@ -441,20 +398,12 @@ if busqueda:
 else:
     tabla = df_filtrado
 
-# ==================================
-# TABLA
-# ==================================
-
 st.subheader("📋 Tabla de datos")
 
 st.dataframe(
     tabla,
     use_container_width=True
 )
-
-# ==================================
-# DESCARGA CSV
-# ==================================
 
 st.subheader("⬇️ Descargar información")
 
