@@ -6,7 +6,7 @@ Persistencia SQLite del proyecto.
 
 import sqlite3
 
-DB_NAME = "monitor_denuncias.db"
+DB_NAME = "data/monitor_denuncias.db"
 
 
 def crear_bd():

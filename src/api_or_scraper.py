@@ -16,7 +16,7 @@ import requests
 # --------------------------------------------------
 
 logging.basicConfig(
-    filename="clima.log",
+    filename="data/clima.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
