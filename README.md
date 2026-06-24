@@ -206,11 +206,11 @@ http://localhost:8501
 
 ## Referencias
 
-- Ministerio del Interior. (2026). Denuncias policiales - 1 (Conjunto de datos). Portal de Datos Abiertos del Estado Peruano. datosabiertos.gob.pe
+- Ministerio del Interior. (2026). Denuncias policiales - 1 (Conjunto de datos). Portal de Datos Abiertos del Estado Peruano. datosabiertos.gob.pe. *Licencia: Datos Abiertos (Dominio Público).*
 - Observatorio Nacional de Seguridad Ciudadana. (2025). Reporte de denuncias registradas en el SIDPOL 2025. Ministerio del Interior. https://www.gob.pe/institucion/mininter/informes-publicaciones/6539903-reporte-denuncias-registradas-en-el-sidpol-2025
 - Jaitman, L., & Anamaría, G. (2020). ¿Por qué se denuncian delitos patrimoniales ante la policía en el Perú? Revista Criminalidad, 62(3), 25-41. http://www.scielo.org.co/pdf/crim/v62n3/1794-3108-crim-62-03-25.pdf
 - Ministerio del Interior. (2026). Reporte del primer trimestre de 2026 de la Incidencia Delictiva en la Macro Región Norte. Informes y publicaciones - Ministerio del Interior.
-- Policía Nacional del Perú / Ministerio del Interior. (2019). Relación de comisarías básicas a nivel nacional (Conjunto de datos georreferenciado). Plataforma Nacional de Datos Abiertos.
+- Policía Nacional del Perú / Ministerio del Interior. (2019). Relación de comisarías básicas a nivel nacional (Conjunto de datos georreferenciado). Plataforma Nacional de Datos Abiertos. *Licencia: Datos Abiertos (Dominio Público).*
 - Policía Nacional del Perú. (2025). Relación de comisarías operativas a nivel nacional al 15DIC2025. Informes y publicaciones - PNP.
 - Open-Meteo. (2024). Free Weather API. https://open-meteo.com
 
