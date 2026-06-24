@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+
+data/DATASET_Denuncias_con_Comisaria_Cercana.csv
