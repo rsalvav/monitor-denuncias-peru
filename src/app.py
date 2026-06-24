@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).parent))
+
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
