@@ -3,7 +3,7 @@ import pandas as pd
 
 def cargar_datos():
     ruta_archivo = 'data/DATASET_Denuncias_con_Comisaria_Cercana.zip'
-    df = pd.read_csv(ruta_archivo, compression='zip' encoding='utf-8')
+    df = pd.read_csv(ruta_archivo, compression='zip', encoding='utf-8')
     return df
 
 
