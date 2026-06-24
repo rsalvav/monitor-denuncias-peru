@@ -91,3 +91,37 @@ def obtener_historial_clima():
     conn.close()
 
     return datos
+    
+"""
+Consulta 1 Últimas 10 consultas de clima por departamento
+"""
+
+SELECT departamento, temperatura, precipitacion, viento, fecha_consulta
+FROM historial_clima
+ORDER BY fecha_consulta DESC
+LIMIT 10;
+
+"""
+Consulta 2 Temperatura promedio, máxima y mínima por departamento
+"""
+
+SELECT 
+    departamento,
+    ROUND(AVG(temperatura), 2) AS temp_promedio,
+    MAX(temperatura)           AS temp_maxima,
+    MIN(temperatura)           AS temp_minima,
+    COUNT(*)                   AS total_consultas
+FROM historial_clima
+GROUP BY departamento
+ORDER BY temp_promedio DESC;
+
+"""
+Consulta 3 Departamentos consultados más de una vez (repetidos)
+"""
+
+SELECT departamento, COUNT(*) AS veces_consultado
+FROM historial_clima
+GROUP BY departamento
+HAVING COUNT(*) > 1
+ORDER BY veces_consultado DESC;
+
